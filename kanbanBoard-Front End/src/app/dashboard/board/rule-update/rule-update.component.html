@@ -1,0 +1,189 @@
+<!-- --------------------- Update Rule Container------------------------ -->
+
+<div class="update-rule-form-container" *ngIf="this.board?.boardRules?.length==0 || this.board?.boardRules?.length==null">
+    <div class="invisible-info">
+        <h1 class="ifUserHasNoRule-sorry">
+            SORRY !
+        </h1>
+        <h2 class="ifUserHasNoRule-msg">
+            You don't have any rule
+        </h2>
+        <div class="create-new-rule-msg">
+            <h2>
+                Create new rule
+            </h2>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+            </svg>
+        </div>
+
+        <div class="para">
+            <p>
+                With the Business Rules in Kanbanize you create hooks that trigger actions when certain events occur.
+                Use flexible “if-this-then-that” automation policies to synchronize data on different Boards, set custom
+                notifications, and facilitate your everyday work with the system.
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="rules-added" *ngFor="let rule of board?.boardRules">
+
+    <form [formGroup]="ruleForm" (submit)="updateRule(ruleForm.value,rule)">
+        <div class="update-rule-form-container">
+            <div class="update-rule-container-header">
+                <div>Rule {{rule.ruleId}}</div>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
+                    (click)="deleteTask(rule)" viewBox="0 0 16 16">
+                    <path
+                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                </svg>
+            </div>
+
+            <div class="mb-3">
+                <label for="columnTitle" class="form-label">From Column</label>
+                <select class="form-select" aria-label="Default select example" formControlName="fromColumn"
+                    (change)="onChangeFromColumn()">
+
+                    <option value="" selected disabled>
+                        <div *ngFor="let column of board?.columns">
+                            <div *ngIf="column.columnId == rule.fromColumn"> {{column.columnTitle}}</div>
+                        </div>
+                    </option>
+
+                    <option value="{{column.columnId}}" *ngFor="let column of board?.columns">
+                        {{column.columnTitle}}
+                    </option>
+                </select>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="columnTaskLimit" class="form-label">To Column</label>
+                <select class="form-select" aria-label="Default select example" formControlName="toColumn"
+                    (change)="onChangeToColumn()">
+                    <option value="" selected disabled>
+                        <div *ngFor="let column of board?.columns">
+                            <div *ngIf="column.columnId == rule.toColumn">
+                                {{column.columnTitle}}
+                            </div>
+                        </div>
+                    </option>
+                    <option value="{{column.columnId}}" *ngFor="let column of board?.columns">
+                        {{column.columnTitle}}
+                    </option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="columnTaskLimit" class="form-label">Trigger</label>
+                <select class="form-select" aria-label="Default select example" formControlName="trigger"
+                    (change)="onChangeTrigger()">
+                    <option value="" selected>
+                        <div *ngIf="rule.trigger=='taskCompletionStatus'">
+                            Task Completion Status
+                        </div>
+                        <div *ngIf="rule.trigger=='taskStatus'">
+                            Task Status
+                        </div>
+                        <div *ngIf="rule.trigger=='taskPriority'">
+                            Task priority
+                        </div>
+                    </option>
+                    <option value="taskCompletionStatus">Task Completion Status</option>
+                    <option value="taskStatus">Task Status</option>
+                    <option value="taskPriority">Task priority</option>
+                </select>
+            </div>
+
+
+            <div *ngIf="rule.trigger=='taskCompletionStatus'&& !isRuleTriggerchanged">
+                <label for="columnTitle" class="form-label">Completion Status</label>
+                <select class="form-select" aria-label="Default select example" formControlName="triggerStatus"
+                    (change)="onChangeTriggerStatus()">
+                    <option value="" selected disabled>
+                        <div *ngIf="rule.triggerStatus">
+                            Complete
+                        </div>
+                        <div *ngIf="!rule.triggerStatus">
+                            Incomplete
+                        </div>
+                    </option>
+                    <option value="true">Complete</option>
+                    <option value="false">Incomplete</option>
+                </select>
+
+
+            </div>
+            <div *ngIf="rule.trigger=='taskStatus' && !isRuleTriggerchanged">
+                <label for="columnTitle" class="form-label">Task Status</label>
+                <select class="form-select" aria-label="Default select example" formControlName="triggerStatus">
+                    <option value="" selected disabled>
+                        <div *ngFor="let val of board?.availableTaskStatus">
+                            <div *ngIf="val==rule.triggerStatus">
+                                {{val}}
+                            </div>
+                        </div>
+                    </option>
+                    <option value="{{val}}" *ngFor="let val of board?.availableTaskStatus">{{val}}</option>
+                </select>
+
+
+            </div>
+            <div *ngIf="rule.trigger=='taskPriority' && !isRuleTriggerchanged">
+                <label for="columnTitle" class="form-label">Task Priority</label>
+                <select class="form-select" aria-label="Default select example" formControlName="triggerStatus">
+                    <option value="{{val}}" *ngFor="let val of board?.availableTaskPriority">{{val}}</option>
+                </select>
+
+
+            </div>
+
+            <!-- **************************************************************************************************************************** -->
+            <div *ngIf="trigger?.value=='taskCompletionStatus'&& isRuleTriggerchanged">
+                <label for="columnTitle" class="form-label">Completion Status</label>
+                <select class="form-select" aria-label="Default select example" formControlName="triggerStatus">
+                    <option value="" selected disabled>
+                        Select Compition Status
+                    </option>
+                    <option value="true">Complete</option>
+                    <option value="false">Incomplete</option>
+                </select>
+
+
+            </div>
+            <div *ngIf="trigger?.value=='taskStatus' && isRuleTriggerchanged">
+                <label for="columnTitle" class="form-label">Task Status</label>
+                <select class="form-select" aria-label="Default select example" formControlName="triggerStatus">
+                    <option value="" selected disabled>
+                        Select Task Status
+                    </option>
+                    <option value="{{val}}" *ngFor="let val of board?.availableTaskStatus">{{val}}</option>
+                </select>
+
+
+            </div>
+            <div *ngIf="trigger?.value=='taskPriority' && isRuleTriggerchanged">
+                <label for="columnTitle" class="form-label">Task Priority</label>
+                <select class="form-select" aria-label="Default select example" formControlName="triggerStatus">
+                    <option value="" selected disabled>Select Priority</option>
+                    <option value="{{val}}" *ngFor="let val of board?.availableTaskPriority">{{val}}</option>
+                </select>
+
+
+            </div>
+            <!-- 
+**************************** ************************************************************************-->
+
+            <!-- ---------------------Update Rule Button-------------------- -->
+            <div class="add-column-form-btn-back">
+                <button class="add-column-form-btn btn btn-secondary" type="submit">Update</button>
+
+            </div>
+
+        </div>
+    </form>
+</div>

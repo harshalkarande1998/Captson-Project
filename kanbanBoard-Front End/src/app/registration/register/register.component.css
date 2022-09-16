@@ -1,0 +1,443 @@
+.register-background-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgb(236, 236, 236);
+    /* background-color: red; */
+    position: relative;
+}
+
+
+.register-container {
+    width: 32%;
+    min-height: 89px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 1.5rem;
+    padding: 1.5rem 2rem;
+    z-index: 10;
+    background-color: white;
+    position: relative;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; */
+      
+    animation-name: registerContainer;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+
+}
+
+
+@keyframes registerContainer{
+    0%{
+
+        scale: 0.96;
+        opacity: 50%;
+    }
+
+    100%{
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        scale: 1;
+        opacity: 100%;
+    }
+
+}
+
+
+.header {
+    text-align: center;
+    color: brown;
+    margin-top: 5px;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif */
+}
+
+.errors {
+    color: red;
+}
+
+.register-page-logo {
+    text-align: center;
+    padding: 8px;
+}
+
+.submit-button {
+    width: 100px;
+    margin: 0px auto;
+    margin-top: 20px;
+    color: brown;
+    border: solid 1px brown
+
+}
+
+.submit-button:hover{
+    background-color: brown;
+    color: white;
+}
+
+
+
+.register-form-container{
+    border: 1px solid rgb(226, 226, 226);
+    padding: 10px;
+    padding-bottom: 30px;
+    margin: 10px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+  
+}
+
+.register-form-container:hover{
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.4em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+input{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 4px;
+}
+
+input:focus{
+    box-shadow: 0 -1px 0 #ddd;
+}
+
+input.ng-invalid.ng-touched {
+    border: red 1px solid;
+}
+
+.image {
+    position: relative;
+    animation-name: harshal;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    z-index: -1;
+    width: 500px;
+    height: 500px;
+    background-color: red;
+}
+
+@keyframes harshal {
+    0% {
+        opacity: 0;
+        bottom: 0px;
+        left: 0px;
+
+    }
+
+
+    100% {
+        opacity: 20%;
+        bottom: 250px;
+        left: 250px;
+        z-index: -1;
+
+    }
+}
+
+
+/* *************************************************** */
+
+/* .background-animation{
+    width: 100%;
+    position: relative;
+    animation-name:harshal1 ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: #f79122;
+}
+
+.first-row{
+    display: flex;
+    justify-content: space-around;
+  
+} */
+
+.column{
+    padding: 15px 10px;
+    width: 20%;
+    border-radius: 40px; 
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(63, 63, 63);
+}
+
+.column1{
+    width: 20%;
+    height: 200px;
+    margin-top: 20px;
+    border-radius: 10px; 
+    display: inline-block;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(63, 63, 63);
+}
+
+.first-column{  
+    position: relative;
+    animation-name:harshal1 ;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  #f79122;
+    
+}
+
+@keyframes harshal1{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 5.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 5.5%;
+    
+    }
+}
+
+.first-column1{  
+    position: relative;
+    animation-name:harshalf1 ;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  #d6d6d6;
+    
+}
+
+@keyframes harshalf1{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 5.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 5.5%;
+    
+    }
+}
+
+.second-column{  
+    position: relative;
+    animation-name:harshal2;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: #15b0bf;
+}
+
+@keyframes harshal2{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 7.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 7.5%;
+    
+    }
+}
+
+.second-column1{  
+    position: relative;
+    animation-name:harshalf2;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  #d6d6d6;
+}
+
+@keyframes harshalf2{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 7.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 7.5%;
+    
+    }
+}
+
+.second-column2{  
+    position: relative;
+    animation-name:harshals2;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  transparent;
+}
+
+@keyframes harshals2{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 7.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 7.5%;
+    
+    }
+}
+
+.third-column{  
+    position: relative;
+    animation-name:harshal3;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  #cb4154;
+}
+
+@keyframes harshal3{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 10%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 10%;
+    
+    }
+}
+
+.third-column1{  
+    position: relative;
+    animation-name:harshalf3;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  #d6d6d6;
+}
+
+@keyframes harshalf3{
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 10%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 10%;
+    
+    }
+}
+
+.fourth-column{  
+    position: relative;
+    animation-name:harshal4;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color: #6ac06e   ;
+}
+
+@keyframes harshal4 {
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 12.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 12.5%;
+    
+    }
+}
+
+.fourth-column1{  
+    position: relative;
+    animation-name:harshalf4;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    background-color:  #d6d6d6;
+}
+
+@keyframes harshalf4 {
+    0%{
+        opacity: 0%;
+        bottom: 10px;
+        left: 12.5%;
+    }
+
+    100%{
+        opacity: 50%;
+        bottom: 87vh;
+        left: 12.5%;
+    
+    }
+}
+
+.transition-delay{
+    animation-delay: 0.2s;
+}
+.transition-delay-m{
+    animation-delay: 0.4s;
+}
+
+.transition-delay-l{
+    animation-delay: 0.6s;
+}
+
+/* ******** sign in with google button ********** */
+
+#buttonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+      background: white;
+      color: #444;
+      width: 190px;
+      border-radius: 5px;
+      /* border: thin solid #888; */
+      border: none;
+      /* box-shadow: 1px 1px 1px grey; */
+      white-space: nowrap;
+}
+
+.sign-in-with-google-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loader2{
+    position: fixed;
+   background: rgba(0, 0, 0, 0.4);
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+

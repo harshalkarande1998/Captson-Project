@@ -1,0 +1,119 @@
+<!-- <div class="register-page-logo">
+  <img src=".\assets\logo.png" alt="" height="50">
+</div> -->
+<div class="loader2" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="register-background-container">
+
+  <div class="register-container">
+    <div class="register-page-logo" (click)="moveToLandingPage()">
+      <img src=".\assets\logo.png" alt="" height="50">
+    </div>
+
+    <h1 class="header">Register Here</h1>
+    <form class="row g-3 register-form-container" [formGroup]="userDetails" (ngSubmit)="onSubmit(userDetails.value)">
+
+
+
+      <div class="col-md-6">
+        <label for="exampleInputPassword1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="enter first name"
+          formControlName="firstName">
+        <small class="errors"
+          *ngIf="userDetailsContent.firstName.errors?.['required'] && userDetailsContent.firstName.invalid && (userDetailsContent.firstName.touched || userDetailsContent.firstName.dirty)">First
+          Name is required</small>
+      </div>
+
+
+
+      <div class="col-md-6">
+        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="enter last name"
+          formControlName="lastName">
+        <small class="errors"
+          *ngIf="userDetailsContent.lastName.errors?.['required'] && userDetailsContent.lastName.invalid && (userDetailsContent.lastName.touched || userDetailsContent.lastName.dirty)">Last
+          Name is required</small>
+
+      </div>
+
+      <div class="col-12">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+          placeholder="enter email" formControlName="email">
+        <small class="errors"
+          *ngIf="userDetailsContent.email.errors?.['required'] && userDetailsContent.email.invalid && (userDetailsContent.email.touched || userDetailsContent.email.dirty)">Email
+          is Required</small>
+        <small class="errors"
+          *ngIf="userDetailsContent.email.errors?.['pattern'] && userDetailsContent.email.invalid && (userDetailsContent.email.touched || userDetailsContent.email.dirty)">Enter
+          Valid Email</small>
+      </div>
+
+
+      <div class="col-12">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="enter password"
+          formControlName="password">
+        <small class="errors"
+          *ngIf="userDetailsContent.password.errors?.['required'] && userDetailsContent.password.invalid && (userDetailsContent.password.touched || userDetailsContent.password.dirty)">Password
+          is required</small>
+        <small class="errors"
+          *ngIf="userDetailsContent.password.errors?.['pattern'] && userDetailsContent.password.invalid && (userDetailsContent.password.touched || userDetailsContent.password.dirty)">Enter
+          Valid Password</small>
+      </div>
+
+      <div class="col-12">
+        <label for="exampleInputPassword1" class="form-label">Phone Number</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="enter phone number"
+          formControlName="phoneNumber">
+        <small class="errors"
+          *ngIf="userDetailsContent.phoneNumber.errors?.['required'] && userDetailsContent.phoneNumber.invalid && (userDetailsContent.phoneNumber.touched || userDetailsContent.phoneNumber.dirty)">Contact
+          Number is required</small>
+        <small class="errors"
+          *ngIf="userDetailsContent.phoneNumber.errors?.['pattern'] && userDetailsContent.phoneNumber.invalid && (userDetailsContent.phoneNumber.touched || userDetailsContent.phoneNumber.dirty)">Enter
+          Valid Contact Number</small>
+      </div>
+      <!-- <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+
+      <div class="sign-in-with-google-container">
+        <button id="buttonDiv" class="customGPlusSignIn"></button>
+      </div>
+
+      <button type="submit" class="btn submit-button" [disabled]="!userDetails.valid" (click)="isLoadingChnges()">Submit</button>
+
+    </form>
+  </div>
+
+
+
+  <div>
+    <div class="first-column column ">To do</div>
+    <div class="second-column column">Pending</div>
+    <div class="third-column column">At risk</div>
+    <div class="fourth-column column">Done</div>
+  </div>
+  <div>
+    <div class="first-column1 column1 transition-delay "></div>
+    <div class="second-column1 column1"></div>
+    <div class="third-column1 column1 transition-delay"></div>
+    <div class="fourth-column1 column1"></div>
+  </div>
+
+  <div>
+    <div class="first-column1 column1 transition-delay-m"></div>
+    <div class="second-column1 column1 transition-delay"></div>
+    <div class="third-column2 column1"></div>
+    <div class="fourth-column1 column1 transition-delay"></div>
+  </div>
+
+  <div>
+    <div class="first-column1 column1 transition-delay-l "></div>
+    <div class="second-column2 column1"></div>
+    <div class="third-column2 column1"></div>
+    <div class="fourth-column2 column1"></div>
+  </div>
+
+</div>

@@ -1,0 +1,58 @@
+
+<p class="nav-container-mat">
+  <mat-toolbar color="">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleDrawer()" *ngIf="showSideBar" >
+      <mat-icon class="menu-icon">menu</mat-icon>
+    </button>
+    <span><img src=".\assets\logo.png" alt="" height="50"></span>
+    <span class="example-spacer"></span>
+
+    <ul class="nav-list pt-1">
+      <li (click)="goHome()" routerLink="/dashboard">Home</li>
+      <li (click)="addBoard()" routerLink="/dashboard">New Board</li>
+      <li (click)="disableSideBar()" routerLink="help">Help</li>
+      <li (click)="disableSideBar()" routerLink="contact">Contact us</li>
+    </ul>
+
+
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon menu-icon" aria-label="Example icon-button with heart icon" (click)="signOut()" matTooltip="Log out">
+      <mat-icon>logout</mat-icon>
+    </button>
+    
+    <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="example-icon menu-icon px-5" aria-label="Example icon-button with share icon" matTooltip="Profile">
+      <mat-icon class="menu-icon">account_circle</mat-icon>
+    </button>
+    <mat-menu #accountMenu>
+      <button mat-menu-item (click)="disableSideBar()" routerLink="profile">
+        <mat-icon>account_circle</mat-icon>
+        Profile
+      </button>
+      <button mat-menu-item (click)="disableSideBar()" routerLink="help" >
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+      </button>
+
+      <button mat-menu-item disabled >
+        <mat-icon>feedback</mat-icon>
+        <span>Send Feedback</span>
+      </button>
+      <button mat-menu-item  (click)="signOut()" matTooltip="Log out">
+        <mat-icon >logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+</p>
+<div *ngIf="showSideBar">
+  <app-sidebar [shouldAdd]="shouldAdd" [shouldGoHome]="shouldGoHome" (changeDisplay)="setShouldGoHomeFalse($event)"
+(addStatus)="setAddStatus($event)"
+></app-sidebar>
+</div>
+
+<div *ngIf="!showSideBar">
+  <router-outlet></router-outlet>
+</div>
+
+
+

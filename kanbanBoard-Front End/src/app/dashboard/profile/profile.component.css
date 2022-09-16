@@ -1,0 +1,82 @@
+/* .sidenav-drawer-profile-img>img{
+
+    margin-bottom: 15px;
+    border-radius: 100%;
+
+} */
+
+.profile-container{
+    width: 80%;
+    margin: auto;
+    padding-top: 30px
+}
+
+.profile-image{
+    text-align: center;
+}
+
+.profile-image img{
+    border-radius: 100%;
+}
+
+.input-profile{
+    text-align: center;
+    margin: 30px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.choose-file{
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+
+}
+
+.choose-file:hover{
+    border-color: black;
+    background-color: rgb(163, 163, 163);
+    color: white;
+   
+}
+
+.profile-info{
+
+    width: 50%;
+    margin: auto;
+    border: 1px solid rgb(188, 188, 188);
+    padding-bottom: 50px;
+    border-radius: 10px;
+
+}
+
+.prifile-header{
+    text-align: center;
+    margin: 40px;
+}
+
+.first-line{
+    display: flex;
+    justify-content: space-around;
+}
+
+.firstname{
+    font-size: 1.1rem;
+}
+
+.lastname{
+    font-size: 1.1rem;
+}
+
+.font-size{
+    font-size: 1.1rem;
+}
+
+.margin{
+    margin-left: 75px;
+    margin-top: 20PX;
+}
+

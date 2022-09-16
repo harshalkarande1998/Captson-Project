@@ -1,0 +1,33 @@
+
+<h2>Update Task</h2>
+<div class="update-task-container">
+
+
+    <form [formGroup]="newColumn" >
+        <div class="add-column-form-container">
+           
+            <div class="mb-3">
+                <label for="columnTitle" class="form-label">Column Name</label>
+                <input type="text" class="form-control" formControlName="columnTitle" placeholder="enter column name *">
+            </div>
+    
+            <div class="mb-3 task-limit-input">
+                <input type="checkbox" formControlName="taskLimitNeeded" >
+                <label for="taskLimitNeeded">&nbsp; Enable Task Limit &nbsp; </label>
+        
+            </div>
+           
+            <div class="mb-3" *ngIf="taskLimitNeeded?.value">
+                <label for="columnTaskLimit" class="form-label">Task Limit</label>
+                <input type="number" class="form-control" formControlName="columnTaskLimit" placeholder="Enter task limit (unlimited if 0)">
+            </div>
+            <div class="btn-container">
+                <button class="btn" (click)="updateColumn()">Update</button>
+                <button class="btn" (click)="closeDialog()">Close</button>
+            </div>
+         
+        </div>
+
+            
+        </form>
+    </div>

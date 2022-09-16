@@ -1,0 +1,40 @@
+.add-member-dialog{
+    padding: 10px;
+}
+
+.add-member-dialog-btn{
+    align-items: center;
+    text-align: center;
+    padding: 5px 30px;
+    border: 1px solid black;
+    color: rgb(58, 58, 58);
+
+}
+
+.add-member-dialog-btn:hover{
+    background-color: rgb(197, 195, 195);
+    color: black;
+   
+}
+
+.add-member-header{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+input{
+    margin-bottom: 20px;
+}
+
+.member-input-area{
+    border: 1px solid rgb(196, 196, 196);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+

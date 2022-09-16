@@ -1,0 +1,423 @@
+.navbar-container {
+    background: transparent;
+    z-index: 1;
+
+}
+
+.navbar-content-container.nav--hidden {
+    transform: translateY(-100%);
+  }
+
+
+.navbar-content-container {
+    width: 80%;
+    margin: auto;
+    position: fixed;
+    margin-left: 10%;
+    background: transparent;
+    transition: transform 1s ease-in-out;
+    z-index: 1;
+    
+   
+}
+
+.main-container {
+    background-color: #efedfc;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.05); */
+    overflow: hidden;
+}
+
+.main-container img {
+    margin-top: 9%;
+    width: 70%;
+    opacity: 20%;
+    margin-left: 10%;
+    position: relative;
+    animation-name: headerImage;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes headerImage{
+    0%{
+        opacity: 0%;
+        scale: 3;
+
+    }
+
+    100%{
+        opacity: 20%;
+        scale: 1;
+
+    }
+}
+
+
+
+
+
+
+.image-text-container {
+    /* width: 30%; */
+    margin: auto;
+    position: absolute;
+    padding: 20px;
+    top: 45%;
+    left: 50%;
+    /* background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.09); */
+    transform: translate(-50%, -50%);
+    animation-name: imageTextContainer;
+    animation-duration: 15s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-delay:5s ;
+    animation-fill-mode: both;
+
+}
+
+@keyframes imageTextContainer{
+    0%{
+        scale: 1;
+    }
+
+    50%{
+        scale: 1.05;
+    }
+
+    100%{
+        scale: 1;
+    }
+}
+
+
+
+
+
+
+
+.heading-slogans {
+    font-size: 3rem;
+    font-weight: 400;
+    line-height: 4rem;
+    color: #f79122;
+    text-shadow: 1px 1px 2px rgb(126, 67, 0);
+    text-align: center;
+    position: relative;
+    transition-duration: 1s;
+    animation-name: sloganText;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    opacity: 0%;
+}
+
+@keyframes sloganText {
+    0% {
+        opacity: 0;
+        left: -100%;
+    }
+
+    100% {
+        opacity: 100%;
+
+        left: 0;
+    }
+}
+
+
+.heading-slogans:hover {
+    scale: 1.05;
+}
+
+.heading-paragraph {
+    font-size: 1.1rem;
+    color: rgb(51, 51, 51);
+    line-height: 1.2rem;
+    text-align: center;
+    padding: 0px 115px;
+    position: relative;
+    animation-name: paragraphAnimation;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 2.1s;
+    opacity: 0;
+}
+
+@keyframes paragraphAnimation {
+    0%{
+        left: 50%;
+        opacity: 0%;
+    }
+
+    100%{
+        left: 0;
+        opacity: 50%;
+    }
+}
+
+
+
+
+
+
+.header-button {
+    width: 40%;
+    margin-left: 43%;
+    position: relative;
+    animation-name: headerButton;
+    animation-iteration-count: 1;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+    animation-delay: 3.2s;
+    opacity: 0;
+
+}
+
+.btn-header{
+    border: 2px solid #f79122;
+    color: #f79122;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+
+}
+
+.btn-header:hover{
+    background-color: #f79122;
+    color: white;
+}
+
+@keyframes  headerButton{
+    0%{
+        left: -100%;
+        opacity: 0%;
+
+
+    }
+
+    100%{
+        left: 0;
+        opacity: 100%;
+    }
+}
+
+
+.main-2-container{
+    height: 100%;
+    width: 100%;
+}
+
+.main-2-inner-container{
+    width: 80%;
+    margin: auto;
+    padding-top: 80px;
+  
+
+}
+
+.main2-header-container{
+    text-align: center;
+}
+
+.main2-header-container h1{
+    font-size: 2.3rem;
+    font-family: 'Ubuntu', sans-serif;
+    padding-bottom: 20px;
+    color: rgb(86, 66, 2);
+}
+
+.main2-header-container p{
+    margin-top: 10px;
+    padding: 20px;
+    font-size: 1.35rem;
+    line-height: 1.35rem;
+    font-family: 'Ubuntu', sans-serif;
+    padding-bottom: 30px;
+}
+
+.main2-header-container img{
+    padding-top: 10px;
+    width: 80%;
+    padding-bottom: 60px;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.main3-container{
+    width: 100%;
+    height: 100%;
+    background-color: #edeaff;
+    
+}
+
+.main3-inner-container{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main3-right-container img{
+    margin-top: 25%;
+    width: 110%;
+}
+
+.main3-left-cintainer{
+    margin-top: 50%;
+}
+
+.main3-left-cintainer h1{
+    font-size: 2.5rem;
+    padding:5px 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.main3-left-cintainer p{
+    font-size: 1.2rem;
+    padding:5px 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.main4-container{
+    height: 100%;
+    width: 100%;
+
+}
+
+.main4-inner-container{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main4-left-container img{
+    width: 80%;
+    margin-top: 27%;
+}
+
+.main4-right-container{
+    margin-top: 50%;
+}
+
+.main4-right-container h1{
+    padding:5px 10px;
+    font-size: 2rem;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.main4-right-container p{
+    font-size: 1.1rem;
+    color: rgb(58, 58, 58);
+    padding: 5px 15px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+.main5-container{
+    width: 100%;
+    height: 100%;
+    background-color: #edeaff;
+    
+}
+
+.main5-inner-container{
+    width: 80%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.main5-right-container img{
+    margin-top: 30%;
+    width: 110%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.main5-left-container{
+    margin-top: 40%;
+}
+
+.main5-left-container h1{
+    font-size: 2.5rem;
+    padding:20px 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.main5-left-container p{
+    font-size: 1.1rem;
+    padding:5px 10px;
+    font-family: 'Ubuntu', sans-serif;
+    padding-right: 65px;
+    
+}
+
+.main6-container{
+    width: 100%;
+    height: 100%;
+}
+
+.main6-inner-container{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.main6-inner-container h1{
+    font-size: 2.5rem;
+    margin-top: 10%;
+}
+
+.main6-inner-container p{
+    font-size: 1.2rem;
+    padding-top: 10px;
+
+}
+
+.main6-inner-container video{
+    width: 80%;
+    padding-bottom: 0px;
+    padding-top: 10px;
+}
+
+.aside-container{
+    width: 100%;
+    background-color: #edeaff;
+}
+
+.aside-inner-container{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+
+}
+
+.aside-inner-container h1{
+    font-size: 1.8rem;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+.img-container{
+    background:transparent;
+    display: flex;
+    justify-content: center;
+    align-items: cente
+
+}
+
+.img-container img{
+    padding: 20px;
+}
+
+
+
+

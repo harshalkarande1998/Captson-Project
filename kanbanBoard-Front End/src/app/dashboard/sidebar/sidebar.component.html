@@ -1,0 +1,180 @@
+<mat-drawer-container class="example-container" autosize >
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+            <div class="sidenav-drawer" >
+                <div class="sidenav-drawer-profile">
+                    <div class="sidenav-drawer-profile-img">
+                    <img [src]="userImage" alt="" width="60">
+                </div>
+                <div class="sidenav-drawer-profile-details">
+                    <div class="name">{{user.firstName}} {{user.lastName}}</div>
+                    <div class="email">{{user.email}}</div>
+                </div>
+
+                <button class="btn sidenav-signOut-btn" (click)="signOut()">Sign Out</button>
+            </div>
+
+            <hr class="sidebar-section-divider-line">
+
+            <div class="sidebar-menu-section">
+                <mat-list role="list" class="sidebar-menu-list">
+                    <h3>Your Projects :</h3>
+                    <ul *ngFor="let board of boards">
+                        <li  (click)="selectBoard(board)" matTooltip="Click to open">{{board.boardName}}</li>
+                    </ul>
+
+
+                    <!-- <mat-list-item role="listitem" *ngFor="let board of boards">
+                        <span (click)="selectBoard(board)">{{board.boardName}}</span>
+                        <mat-icon style="scale: 0.7;" (click)="refreshBoard(board.boardId)">refresh</mat-icon>
+                        <span></span>
+                    </mat-list-item> -->
+                    <!-- *ngFor="let board of boards" (click)="selectBoard(board)" -->
+                    <!-- {{board.boardName}} -->
+                </mat-list>
+
+            </div>
+
+            <hr class="sidebar-section-divider-line">
+
+            <div class="sidenav-member sidenav-buttons ">
+                <div>
+                    <button class="add-new-board" (click)="openAddBoardDialog()">
+                        <div>Add New Project</div>
+                    </button>
+                </div>
+
+                <div>
+                    <button class="refresh-all-boards" (click)="getAllBoards()">
+                        <div>Refresh All Projects</div>
+                    </button>
+                </div>
+
+
+            </div>
+
+            <!-- <hr class="sidebar-section-divider-line"> -->
+
+            <!-- <div class="sidenav-project">
+                <mat-list role="list" class="sidebar-menu-list">
+                 <h3>Members +</h3>
+                    <mat-list-item role="listitem">Harshal Karande</mat-list-item>
+                </mat-list>
+
+            </div> -->
+        </div>
+    </mat-drawer>
+
+
+
+    <div *ngIf="selectedBoard!=undefined">
+        <app-board [boardObject]="selectedBoard" (updateBoard)="updateSelectedBoard($event)"
+            (isBoardDeleted)="deleteBoard($event)"></app-board>
+    </div>
+
+    <div class="container-fluid" *ngIf="selectedBoard==undefined">
+
+
+        <!-- <div class="row" *ngFor="let board of boards" (click)="selectBoard(board)" style="margin: 20px;">
+        <div class="container-fluid" >
+           <mat-card class="members-list-member">
+            <mat-card-title> {{board.boardName}}
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-trash3" viewBox="0 0 16 16" (click)="deleteBoardIcon(board)">
+                    <path
+                        d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                </svg></span>
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <h2>Description:</h2>
+            <p>{{board.boardDescription}}</p>
+            <h3>Members:</h3>
+            <div *ngFor="let member of board.boardMembers">{{member.memberEmail}}</div>
+            </mat-card-content>
+           </mat-card>
+        </div>
+    </div> -->
+
+        <div class="home-container">
+            <div class="header-container">
+                <div class="header-logo">
+                    <img src=".\assets\logo.png" alt="" height="130">
+                </div>
+                <div class="slogan">
+                    Unlock the potential of your team.
+                </div>
+
+                <div class="welcome">
+                    <h1>Welcome, Hi {{user.firstName}}</h1>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="if-board-is-empty-container" *ngIf="boards.length==0">
+            <div class="empty-board-sorry-msg">
+                Sorry !
+            </div>
+            <div class="empty-board-msg">
+                You Don't have any Project
+            </div>
+            <div class="empty-create-new-msg">
+                Create New Project Here
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-arrow-down-circle-fill" viewBox="0 0 16 16">
+                <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V4.5z" />
+            </svg>
+
+            <div>
+                <button class="btn" (click)="openAddBoardDialog()">Create New Project</button>
+            </div>
+
+        </div>
+
+        <div class="project-card-display-container " *ngIf="boards.length>0">
+            <div *ngFor="let board of boards" class="card-in">
+                <mat-card class="members-list-member card ">
+                    <mat-card-title>
+                        <div class="card-title">
+                            {{board.boardName}}
+                        </div>
+
+                        <!-- <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-trash3" viewBox="0 0 16 16" (click)="deleteBoardIcon(board)">
+                                <path
+                                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+                            </svg></span> -->
+                    </mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-content>
+                        <div class="card-description">
+                            {{board.boardDescription}}
+                        </div>
+                        <div class="card-members">
+                            <div *ngFor="let member of board.boardMembers">{{member.memberEmail}}</div>
+                        </div>
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <div class="delete-button">
+                            <button class="btn btn-delete" (click)="deleteBoardIcon(board)">Delete</button>
+                            <button class="btn btn-open" (click)="selectBoard(board)">Open</button>
+                        </div>
+                    </mat-card-actions>
+
+                </mat-card>
+            </div>
+
+        </div>
+
+
+        <!-- <div (click)="openChatBotDialog()">ChatBot</div> -->
+    </div>
+
+
+    <!-- <app-board></app-board> -->
+
+</mat-drawer-container>

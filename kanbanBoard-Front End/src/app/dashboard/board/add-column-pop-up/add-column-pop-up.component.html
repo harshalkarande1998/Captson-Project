@@ -1,0 +1,32 @@
+<h3 class="add-column-form-heading">Enter Column Details</h3>
+
+<form [formGroup]="newColumn" (ngSubmit)="submitColumn(newColumn.value)">
+    <div class="add-column-form-container">
+       
+        <div class="mb-3">
+            <label for="columnTitle" class="form-label">Column Name</label>
+            <input type="text" class="form-control" formControlName="columnTitle" placeholder="enter column name *">
+        </div>
+
+        <div class="mb-3 task-limit-input">
+            <input type="checkbox" formControlName="taskLimitNeeded" >
+            <label for="taskLimitNeeded">&nbsp; Enable Task Limit &nbsp; </label>
+    
+        </div>
+       
+        <div class="mb-3" *ngIf="taskLimitNeeded?.value">
+            <label for="columnTaskLimit" class="form-label">Task Limit</label>
+            <input type="number" class="form-control" formControlName="columnTaskLimit" placeholder="Enter task limit (unlimited if 0)">
+        </div>
+
+        <div class="add-column-form-btn-back">
+            <button class="add-column-form-btn btn btn-primary" [disabled]="!newColumn.valid" type="submit" >Create</button>
+            <button class="add-column-form-btn btn btn-secondary" (click)="closeDialog()" type="button">Close</button>
+        </div> 
+    </div>
+
+ 
+
+
+
+</form>

@@ -1,0 +1,111 @@
+<!-- <h2>Sign Up</h2>
+<button type="button" routerLink="">Home</button>
+<form [formGroup]="signUp" (ngSubmit)="submitSignIn(signUp.value)">
+    <label for="email">Email Id</label>
+    <br>
+    <input type="text" placeholder="Email" formControlName="email"/>
+    <br>
+    <small *ngIf="!userEmail?.valid&&userEmail?.dirty&&!userEmail?.errors?.['required']">Invalid email</small>
+    <small *ngIf="!userEmail?.valid&&userEmail?.dirty&&userEmail?.errors?.['required']">Required</small>
+
+    <br>
+
+    <label for="password">Password</label>
+    <br>
+    <input type="password" placeholder="Password" formControlName="password"/>
+    <br>
+    <small *ngIf="!userPassword?.valid&&userPassword?.dirty&&!userPassword?.errors?.['required']">Invalid password</small>
+    <small *ngIf="!userPassword?.valid&&userPassword?.dirty&&userPassword?.errors?.['required']">Required</small>
+
+    <br>
+    <button type="submit" [disabled]="!signUp.valid">Sign In</button>
+
+</form> -->
+<div class="loader1" *ngIf="isLoading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="background-container">
+  <div>
+  <div class="animation-image1 ">
+    <img src=".\assets\kanban-methode-e1608801917364.png" alt="" width="500">
+  </div>
+  <div class="animation-image2">
+    <img src=".\assets\pinpng.com-projects-icon-png-4894061.png" alt="" width="300">
+  </div>
+</div>
+<div class="logInContainer">
+    <main class="form-signin login">
+      <div class="logo" (click)="moveToLandingPage()">
+        <img src=".\assets\logo.png" alt="" height="50">
+       
+      </div>
+      <form [formGroup]="signUp" (ngSubmit)="submitSignIn(signUp.value)">
+        <h1 class="h3 mb-3 fw-normal text-center  heading ">Sign In</h1>
+  
+        <div class="form-floating">
+          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+          formControlName="email">
+          <label for="floatingInput">Email address</label>
+          <div>
+          <small *ngIf="!userEmail?.valid&&userEmail?.dirty&&userEmail?.errors?.['required']"
+                        class="errors">
+            Email is Required
+          </small>
+  
+          <small *ngIf="!userEmail?.valid&&userEmail?.dirty&&!userEmail?.errors?.['required']"
+                        class="errors">
+            Enter valid Email
+          </small>
+        </div>
+        </div>
+  
+        <div class="form-floating">
+          <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+            formControlName="password">
+          <label for="floatingPassword">Password</label>
+        </div>
+  
+        <div>
+          
+  
+          <small *ngIf="!userPassword?.valid&&userPassword?.dirty&&userPassword?.errors?.['required']"
+                        class="errors">
+            Password is Required
+          </small>
+  
+          <small *ngIf="!userPassword?.valid&&userPassword?.dirty&&!userPassword?.errors?.['required']"
+                        class="errors">
+            Enter valid Password
+          </small>
+        </div>
+  
+  
+        <button class="w-100 btn btn-lg btn-secondary mt-4 btn-font" 
+                      [disabled]="!signUp.valid" 
+                      (click)="isLoadingChnge()"
+                      type="submit">Sign
+          in</button>
+        <button class="w-100 btn btn-lg btn-secondary mt-2 btn-font "
+        (click)=" moveToRegister()" type="button"
+        >Register</button>
+      </form>
+    </main>
+
+    <div class="or-container">
+      OR
+    </div>
+
+    <div class="sign-in-with-google-container">
+      <div id="buttonDiv"></div>
+    </div>
+
+  </div>
+
+  <div class="animation-image3">
+    <img src=".\assets\pinpng.com-team-png-images-5990208.png" alt="" width="450">
+  </div>
+
+  
+
+ 
+</div>

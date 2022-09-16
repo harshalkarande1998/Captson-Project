@@ -1,0 +1,30 @@
+<configuration>
+    <property name="file_path" value="logs"/>
+    <property name="file_name" value="userLog"/>
+    <property name="file_extension" value=".log"/>
+    <timestamp key="file_time" datePattern="yyyyMMdd'T'hhMMss" timeReference="contextBirth"/>
+
+    <appender name="file_appender" class="ch.qos.logback.core.FileAppender">
+        <file>
+            ${file_path}/${file_name}_${file_time}${file_extension}
+        </file>
+        <encoder>
+            <pattern>
+                %d{dd/mm/yyyy HH:mm:ss.SSS} {%thread} %-5level %logger{50}  - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{dd/mm/yyyy HH:mm:ss.SSS} {%thread} %-5level %logger{50}  - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <root level = "debug">
+        <appender-ref ref="file_appender"/>
+        <appender-ref ref="stdout"/>
+    </root>
+</configuration>

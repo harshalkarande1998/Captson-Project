@@ -1,0 +1,292 @@
+
+/* *************** background contsiner ****************** */
+.example-container {
+  width: 100%;
+  height: 89vh;
+  overflow-y: hidden;
+}
+
+
+
+
+
+/* ********* sidenav content ********** */
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.example-sidenav {
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1),
+    0 6px 20px 0 rgba(0, 0, 0, 0.10);
+}
+
+
+
+
+
+
+.sidenav-drawer-profile-img>img {
+  border-radius: 100%;
+  margin-bottom: 15px;
+
+}
+
+.sidenav-drawer-profile-details {
+  font-size: 1rem;
+
+}
+
+.sidenav-drawer-profile {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+
+}
+
+.sidebar-section-divider-line {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5),
+    0 6px 20px 0 rgba(0, 0, 0, 10);
+  color: black;
+  padding: 0px;
+
+
+}
+
+.sidenav-signOut-btn {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.13);
+  padding: 2px 8px;
+  margin: 20px;
+  color: rgb(109, 110, 111);
+}
+
+.sidenav-menu-icon {
+  padding-right: 30px;
+  color: rgb(217, 94, 102);
+  scale: 1.2;
+}
+
+
+
+
+.sidebar-menu-list{
+
+  padding-left: 20px;
+ 
+}
+
+
+.sidenav-buttons{
+
+  text-align: center;
+}
+
+.add-new-board{
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: transparent;
+  /* border: 1px solid black; */
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.13);
+  transition-duration: 0.3s;
+  
+}
+
+.add-new-board:hover{
+    background-color:#e58a28;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: white;
+    scale: 1.03;
+}
+
+
+.sidebar-menu-list ul li{
+  cursor: pointer;
+}
+
+.refresh-all-boards{
+  margin: 10px;
+  padding: 10px 13px;
+  background-color: transparent;
+  border: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+  0 6px 20px 0 rgba(0, 0, 0, 0.13);
+  transition-duration: 0.3s;
+}
+
+.refresh-all-boards:hover{
+  background-color: #e03134;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    color: white;
+    scale: 1.03;
+    color: white;
+    scale: 1.03;
+}
+
+
+
+/* ******** home container ******** */
+.home-container {
+  text-align: center;
+  width: 80%;
+  margin: auto;
+  padding-top: 1.5rem;
+
+}
+
+
+/* *********** header ******** */
+.slogan {
+  font-size: 1.1rem;
+  /* margin-top: 3px; */
+  /* font-family: 'Tangerine', cursive; */
+  /* font-family: 'Pacifico', cursive; */
+  font-weight: 400;
+  color: #ff8400;
+  text-shadow: 0.5px 0.5px 2px #828282;
+  margin-top: 10px;
+  white-space: 210px;
+  word-spacing: 3px;
+
+}
+
+.welcome h1 {
+  font-size: 3rem;
+  margin-top: 3rem;
+  color: rgb(77, 68, 52);
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.if-board-is-empty-container {
+  width: 40%;
+  height: 50%;
+  background: transparent;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: auto;
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.empty-board-sorry-msg {
+  color: #767575;
+  font-size: 3.3rem;
+  padding: 20px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.empty-board-msg {
+  color: #767575;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.empty-create-new-msg {
+  color: #767575;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  font-family: 'Roboto Slab', serif;
+}
+
+.if-board-is-empty-container svg {
+  scale: 3;
+  margin: 30px;
+  color: #dbba96;
+}
+
+.if-board-is-empty-container div button {
+  border: 1px solid black;
+}
+
+.if-board-is-empty-container div button:hover {
+  background-color: #767575;
+  color: white;
+}
+
+.project-card-display-container {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  padding: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-flow: row wrap;
+}
+
+
+.card-in {
+  flex: 0 0 33.33%;
+  display: flex;
+  padding: 10px;
+}
+
+.card {
+
+  width: 400px;
+  align-self: normal;
+  flex: 0 0 100%;
+
+ 
+}
+
+
+.card-description {
+  padding-top: 20px;
+  margin: 10px;
+  word-wrap: normal;
+  overflow-wrap: normal;
+  text-align: justify;
+
+
+}
+
+.card-members {
+  padding: 10px;
+  overflow-y: scroll;
+  ;
+
+}
+
+.card-title {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.delete-button {
+  display: flex;
+  margin-bottom: 10px;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+
+  
+
+.btn-delete{
+  border: 1px solid rgb(165, 85, 85);
+  color: rgb(165, 85, 85);
+
+}
+
+.btn-open{
+  border: 1px solid rgb(67, 132, 67);
+  color: rgb(67, 132, 67);
+
+}
+
+

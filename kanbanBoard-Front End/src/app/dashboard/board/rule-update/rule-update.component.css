@@ -1,0 +1,89 @@
+/* ********* Update Container ********** */
+
+.update-rule-form-container {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 20px 30px;
+    margin: 10px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.15) 0px 2px 8px 0px;
+
+}
+
+
+/* ***** Rule Update Container Header (RuleId, Delete Symbol) ****** */
+
+.update-rule-container-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.update-rule-container-header svg:hover {
+    scale: 1.2;
+    color: rgb(67, 66, 66);
+}
+
+
+/*  ********* Update Button ************ */
+
+.add-column-form-btn-back {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+/* ***** select tag styling ******** */
+select:focus {
+    box-shadow: inset 0 -1px 0 #ddd;
+}
+
+
+select {
+    box-shadow: rgba(99, 99, 99, 0.15) 0px 2px 8px 0px;
+}
+
+
+
+
+.ifUserHasNoRule-sorry {
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 50px;
+
+
+}
+
+.ifUserHasNoRule-msg {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-top: 30px;
+
+
+}
+
+.create-new-rule-msg {
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.create-new-rule-msg svg{
+    scale: 3;
+    color:orange;
+}
+
+
+.para{
+    margin:39px 0px ;
+    text-align: justify;
+}
+
+.invisible-info{
+    opacity: 70%;
+    
+}

@@ -1,0 +1,220 @@
+<div class="board-header-container">
+    <div class="board-header-heading">
+        {{boardObject.boardName}}
+    </div>
+
+    <div class="board-header-members">
+        <!-- <form action="">
+            <label for="membes">Members</label>
+            <select name="members" id="">
+                <option value="members" *ngFor="let member of boardObject.boardMembers">{{member.memberEmail}}</option>
+            </select>
+        </form> -->
+
+
+        <button [matMenuTriggerFor]="members" class="board-header-btn board-header-members-btn"
+            matTooltip="Add or Delete Members"><span>Members</span></button>
+        <mat-menu #members="matMenu" class="mat-menu">
+            <div *ngFor="let member of boardObject.boardMembers" mat-menu-item>
+                <div class="members-list-member">
+                    <div>
+                        {{member.memberEmail}}
+                    </div>
+                    <div >
+                       <mat-icon class="clear-mat-icon"  (click)="deleteMember(member.memberEmail)" *ngIf="checkAdmin()">clear</mat-icon>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+            </div>
+            <button mat-menu-item class="add-btn-member" (click)="openAddMemberDialog()">
+                Add Members +
+            </button>
+        </mat-menu>
+
+    </div>
+
+    <div class="board-header-task-priority">
+
+        <button [matMenuTriggerFor]="menu" class="board-header-btn board-header-task-priority-btn"
+            matTooltip="Add or Delete Task Priority"><span>Task
+                Priority</span></button>
+        <mat-menu #menu="matMenu">
+            <!-- <button mat-menu-item > -->
+            <div mat-menu-item *ngFor="let taskpriority of boardObject.availableTaskPriority">
+                <div class="task-priority-dropdown">
+                    <div>
+                        {{taskpriority}}
+                    </div>
+                    <div>
+                        <mat-icon class="clear-mat-icon" (click)="deleteTaskPriority(taskpriority)" *ngIf="checkAdmin()">clear</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <!-- </button> -->
+            <mat-divider></mat-divider>
+            <button mat-menu-item class="add-btn-member" (click)="openTaskPriorityDialog()">
+                Add Task Priority +
+            </button>
+            <!-- <button [matMenuTriggerFor]="menu" class="board-header-btn board-header-task-priority-btn"><span>Task
+                Priority</span></button>
+            <mat-menu #menu="matMenu">
+            <button mat-menu-item *ngFor="let taskpriority of boardObject.availableTaskPriority">
+                {{taskpriority}}</button> -->
+        </mat-menu>
+
+
+    </div>
+
+    <div class="board-header-task-priority">
+        <button [matMenuTriggerFor]="menuStatus" class="board-header-btn board-header-task-priority-btn"
+            matTooltip="Add or Delete Task status"><span> Task Status
+            </span></button>
+        <mat-menu #menuStatus="matMenu">
+            <div mat-menu-item *ngFor="let taskStatus of boardObject.availableTaskStatus">
+                <div class="task-status-dropdown">
+                    <div> {{taskStatus}}</div>
+                    <div>
+                        <mat-icon class="clear-mat-icon"  (click)="deleteTaskStatus(taskStatus)" *ngIf="checkAdmin()">clear</mat-icon>
+                    </div>
+                </div>
+            </div>
+            <mat-divider></mat-divider>
+            <button mat-menu-item class="add-btn-member" (click)="openTaskStatusDialog()">
+                Add Task Status +
+            </button>
+        </mat-menu>
+    </div>
+
+    <div class="">
+        <button class="board-header-rules-btn board-header-btn" (click)="openAddRuleDialog()"
+            matTooltip="Add Automation"><span>Rules</span></button>
+        <!-- <app-rule [board]="boardObject" (ruleEvent)="getRule($event)"></app-rule> -->
+    </div>
+
+    <div class="board-header-task-priority">
+        <button [matMenuTriggerFor]="menuFilter" class="board-header-btn board-header-task-priority-btn"
+            matTooltip="Filter only your tasks"><span> Filter
+            </span></button>
+        <mat-menu #menuFilter="matMenu">
+            <button mat-menu-item (click)="changeTaskDisplay()" class="my-task">
+                <div *ngIf="displayMyTask">
+                    <mat-icon class="mat-done-icon">done</mat-icon>
+                </div>
+                <div>
+                    My Tasks
+                </div>
+
+            </button>
+            <button mat-menu-item [matMenuTriggerFor]="menuFilterPriority" class="my-task">
+                <div *ngIf="chosenPriority!=''">
+                    <mat-icon class="mat-done-icon">done</mat-icon>
+                </div>
+                <div>
+                    Task Priority
+                </div>
+            </button>
+        </mat-menu>
+        <mat-menu #menuFilterPriority="matMenu">
+            <div *ngFor="let taskpriority of boardObject.availableTaskPriority">
+
+                <button mat-menu-item (click)="choosePriority(taskpriority)">
+                    <div class="task-priority-filter">
+                        <div *ngIf="chosenPriority==taskpriority">
+                            <mat-icon class="mat-done-icon">done</mat-icon>
+                        </div>
+                        <div class="task-priority-text">
+                            {{taskpriority}}
+                        </div>
+
+                    </div>
+                </button>
+            </div>
+        </mat-menu>
+    </div>
+
+
+
+    <div class="">
+        <button class="board-header-btn board-header-task-priority-btn delete-board-btn" (click)="deleteBoard()">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
+                viewBox="0 0 16 16" >
+                <path
+                    d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+            </svg> -->
+            Delete Board
+
+        </button>
+    </div>
+
+
+</div>
+<div class="column-in-board">
+    <div class="columnDisplay" cdkDropListGroup>
+        <div *ngFor="let column of boardObject.columns">
+            <app-column [column]="column" (columnChanges)="updateColumn($event, column)"
+                (isColumnDeleted)="deleteColumn($event, column)" [shouldDisplayMyTask]="displayMyTask"
+                [taskPriorityFilter]="chosenPriority"></app-column>
+
+        </div>
+        <button class="board-add-column-btn" style="height: 40px;" (click)=" openAddColumnDialog()">Add Column</button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="board-header-container">
+    <div class="row">
+        <div class="col-12 boardNav">
+            <h2>{{boardObject.boardName}}</h2>
+            <div>
+        <menu>rules</menu> 
+
+          <option value="">rules</option>
+                <h3>rules</h3>
+            </div>
+            <div style="display: flex; flex-direction: row;justify-content: space-between;">
+
+                <form action="">
+                    <label for="membes">Members</label>
+                    <select name="members" id="">
+                        <option value="members" *ngFor="let member of boardObject.boardMembers">{{member.memberEmail}}
+                        </option>
+                    </select>
+                </form>
+            </div>
+
+            <div>
+                <form action="">
+                    <label for="priorities">task priority values</label>
+                    <select name="priorities" id="">
+                        <option value="taskpriority" *ngFor="let taskpriority of boardObject.availableTaskPriority">
+                            {{taskpriority}}</option>
+                    </select>
+                </form>
+            
+            </div>
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="columnDisplay">
+            <div *ngFor="let column of boardObject.columns">
+            
+                <app-column [column]="column"></app-column>
+            </div>
+            <button class="btn btn-primary" style="height: 40px;" (click)="addColumn()">Add Column</button>
+        </div>
+    </div>
+
+
+
+
+ </div> -->

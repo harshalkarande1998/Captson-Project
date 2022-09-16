@@ -1,0 +1,76 @@
+<h2>Update Task</h2>
+<div class="update-task-container">
+
+    <div class="task-container-column-1">
+        <div class="task-name" contenteditable="true" #taskName id="taskName">
+            {{task.taskName}}
+
+
+        </div>
+      
+        <div>
+            <p class="task-description" contenteditable="true" #taskDescription id="taskDescription">
+                {{task.taskDescription}}
+            </p>
+        </div>
+    </div>
+
+    <div class="vertical-line-separator"></div>
+
+    <div class="task-container-column-2">
+        <!-- <div>Task Assign to : <span > {{task.taskAssignedTo}} </span></div> -->
+        <form [formGroup]="updateTaskForm">
+            <div class="mb-3">
+                <label for="task-AssignTo" class="form-label">Task Assign To</label>
+                <select class="form-select" aria-label="Default select example" formControlName="taskAssignedTo">
+                    <option selected disabled> {{task.taskAssignedTo}}</option>
+                    <option value="{{member.memberEmail}}" *ngFor="let member of board?.boardMembers" [disabled]="!checkAdmin()">
+                        {{member.memberEmail}}</option>
+                </select>
+
+            </div>
+
+
+            <div class="mb-3">
+                <label for="task-AssignTo" class="form-label">Task Priority</label>
+                <select class="form-select" aria-label="Default select example" formControlName="taskPriority" 
+                    #taskPriority>
+                    <option selected disabled> {{task.taskPriority}}</option>
+                    <option [disabled]="!checkAdmin()" value="{{priority}}" *ngFor="let priority of board?.availableTaskPriority">{{priority}}</option>
+                </select>
+            </div>
+
+
+            <!-- <div>Task status : <span>{{task.taskStatus}}</span></div> -->
+
+            <div class="mb-3">
+                <label for="task-AssignTo" class="form-label">Task Status</label>
+                <select class="form-select" aria-label="Default select example" formControlName="taskStatus"
+                    #taskStatus>
+                    <option selected disabled>{{task.taskStatus}}</option>
+                    <option value="{{status}}" *ngFor="let status of board?.availableTaskStatus">{{status}}</option>
+                </select>
+            </div>
+
+            <!-- <div>Due Date : <span>{{task.dueDate.getDate()}}/{{task.dueDate.getMonth()}}/
+                    {{task.dueDate.getFullYear()}}</span></div> -->
+
+
+            <div class="mb-3">
+                <label for="dueDate" class="form-label">Due Date *</label>
+                <!-- <input formControlName="dueDate" type="date" class="form-control" placeholder="due date " [min]="date"> -->
+
+
+                <input matInput  formControlName="dueDate" type="date" class="form-control" [min]="minStartDate"
+                    [matDatepicker]="picker" >
+                <mat-datepicker-toggle style="display: none;" matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+
+            <div class="btn-container">
+                <button class="btn" (click)="updateTask()">Update</button>
+                <button class="btn" (click)="closeUpdateTaskDialog()">Close</button>
+            </div>
+        </form>
+    </div>

@@ -1,0 +1,60 @@
+<!-- <div class="container-fluid" >
+    <div class="row" style="justify-content: center;">
+        <div class="col-6">
+            <div class="row">
+                <div class="col-6">
+                    <div class="sidenav-drawer-profile-img">
+                        <img [src]="imageUrl" alt="" width="200">
+                    </div>
+                    <input type="file" (change)="onImageAdd($event)">
+                    <small>{{imageMessage}}</small>
+                </div>
+                <div class="col-6">
+                    <h1>Account Details</h1>
+                    <p><strong>First Name:</strong>&nbsp; {{userDetails.firstName}}</p>
+                    <p><strong>Last Name:</strong> &nbsp;{{userDetails.lastName}}</p>
+                    <p><strong>Email Id:</strong> &nbsp;{{userDetails.email}}</p>
+                    <p><strong>Phone Number:</strong>&nbsp; {{userDetails.phoneNumber}}</p> -->
+                    <!-- <p><strong>Password:</strong>:{{userDetails.firstName}}</p> -->
+<!--                     
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div> -->
+
+<div class="profile-container">
+    <div class="profile-image">
+        <img [src]="imageUrl" alt="" width="200">
+    </div>
+    <div class="input-profile">
+        <label class="choose-file">Upload Profile Picture <input type="file" (change)="onImageAdd($event)"></label>
+                      
+    </div>
+
+    <div class="profile-info">
+        <div class="prifile-header">
+            <h1>Account Details</h1>
+        </div>
+
+        <div class="first-line">
+            <div class="firstname">
+                First Name: {{userDetails.firstName}}
+            </div>
+            <div class="lastname">
+                Last Name: {{userDetails.lastName}}
+            </div>
+        </div>
+
+        <div class="userEmail font-size margin">
+            Email: {{userDetails.email}}
+        </div>
+
+        <div class="phoneNumber font-size margin">
+           Phone: {{userDetails.phoneNumber}}
+        </div>
+
+    </div>
+
+</div>

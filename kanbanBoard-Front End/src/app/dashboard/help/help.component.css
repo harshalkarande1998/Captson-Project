@@ -1,0 +1,39 @@
+.doc-container {
+    overflow: auto;
+    word-wrap: normal;
+    padding: 10px;
+    width: 100%;
+    height: 90vh;
+
+
+}
+
+.doc-heading {
+    text-align: center;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+.text-container {
+    width: 80%;
+    margin: auto;
+    overflow-wrap: normal;
+    text-align: justify;
+}
+
+.heading{
+
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+li {
+    margin: 30px;
+    font-size: 1.2rem;
+}
+
+.para{
+    font-size: 1rem;
+}

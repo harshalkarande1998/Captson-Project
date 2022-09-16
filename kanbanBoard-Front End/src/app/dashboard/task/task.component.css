@@ -1,0 +1,156 @@
+/* .b{
+    border-radius: 10px;
+
+} */
+
+.task-container {
+    width: 100%;
+    padding: 10px;
+    height: max-content;
+    background-color: #ffff;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    animation-name: taskLoader;
+    animation-duration: 0.5s;
+    transition-duration:0.2s ;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in;
+    /* box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 4px; */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5),
+                0 3px 8px 0 rgba(0, 0, 0, 0.10);
+
+}
+
+.task-container:hover{
+    scale: 1.03;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.8),
+    0 3px 10px 0 rgba(0, 0, 0, 0.40);
+
+}
+
+@keyframes taskLoader {
+    0% {
+      transform: rotate(0deg)
+    }
+    10% {
+      transform: rotate(-5deg)
+    }
+    30% {
+      transform: rotate(3.5deg)
+    }
+    55% {
+      transform: rotate(-3deg)
+    }
+    80% {
+      transform: rotate(1deg)
+    }
+    100% {
+      transform: rotate(0deg)
+    }
+  }
+
+.task-title {
+    inline-size: 100%;
+    /* background-color: aqua; */
+    overflow-wrap: break-word;
+    /* word-break: break-all; */
+    color: rgb(82, 82, 82);
+    font-size: 1rem;
+}
+
+
+.task-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    opacity: 60%;
+    color: rgb(19, 11, 11);
+    font-size: 0.8rem;
+}
+
+.task-details svg {
+    margin: 0px 3px;
+    opacity: 75%;
+    color: rgb(86, 37, 37);
+    scale: 0.9;
+}
+
+.task-complition-status {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.task-complition-status-icon {
+    opacity: 50%;
+    scale: 0.8;
+}
+
+.task-assign-to {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.8;
+    opacity: 60%;
+}
+
+.task-assign-to-icon {
+    opacity: 55%;
+    scale: 0.8;
+}
+.task-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* cursor: pointer; */
+}
+
+.task-title span{
+    cursor: pointer; 
+}
+.task-title svg{
+    cursor: pointer; 
+}
+
+.flexbox{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+   
+}
+
+.edit-tast-mat-icon{
+    scale: 0.7;
+    padding: 0px 5px;
+    cursor: pointer;
+    transition-duration:0.1s ;
+}
+
+.edit-tast-mat-icon:hover{
+    scale: 0.8;
+   
+}
+
+.edit-icon-dropdown-task{
+    scale: 0.7;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.delete-icon-dropdown-task{
+    scale: 0.7;
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.task-due-date{
+    display: flex;
+    align-items: center;
+}
+
+.task-due-date-icon{
+    opacity: 50%;
+    scale: 0.9;
+}

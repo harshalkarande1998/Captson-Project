@@ -1,0 +1,64 @@
+<!-- 
+<div class="card">
+      <h1>{{task.taskName}}   </h1>
+  
+      <p class="card-content">{{task.taskDescription}}</p>
+      <img src={{task.taskImage}} alt="Photo of Task">
+      <div>
+        <button class="b">{{task.taskCompletionStatus}}</button>
+        <button class="b">{{task.taskStatus}}</button>
+        <button class="b">{{task.taskPriority}}</button></div>
+      <p>
+        Members:{{task.taskAssignedTo}}</p>
+      <p>{{task.dueDate.getDate()}}/{{task.dueDate.getMonth()}} {{task.dueDate.getFullYear()}}</p>
+
+  </div> -->
+
+
+<div class="task-container">
+  <div class="task-title">
+    <span (click)="openEditTaskDialog()" matTooltip="Edit Task">{{task.taskName}}</span>
+
+    <mat-icon [matMenuTriggerFor]="taskEdit" class="edit-tast-mat-icon" *ngIf="task.taskAssignedTo!='' && task.taskPriority!='' && task.taskStatus!='' " >more_vert</mat-icon>
+
+    <mat-icon [matMenuTriggerFor]="taskEdit" class="edit-tast-mat-icon" *ngIf="task.taskAssignedTo=='' || task.taskPriority=='' || task.taskStatus==''" matBadge="!"  matBadgeColor="warn" matTooltip="Please update task">more_vert</mat-icon>
+    <mat-menu #taskEdit="matMenu" class="mat-menu">
+      <div class="flexbox" (click)="openEditTaskDialog()">
+        <mat-icon class="edit-icon-dropdown-task">edit_note</mat-icon>
+        Edit task
+      </div>
+      <div class="flexbox" (click)="deleteTask()">
+        <mat-icon class="delete-icon-dropdown-task">delete</mat-icon>
+        Delete Task
+      </div>
+
+    </mat-menu>
+
+  </div>
+
+  <div class="task-details" (click)="changeTaskCompletionStatus()">
+    <div class="task-complition-status">
+      <mat-icon class="task-complition-status-icon" [style]="statusColor">assignment_turned_in</mat-icon>
+      <div *ngIf="task.taskCompletionStatus" matTooltip="Click to change">Completed</div>
+      <div *ngIf="!task.taskCompletionStatus" matTooltip="Click to change">Incomplete</div>
+      <!-- {{task.taskCompletionStatus}} -->
+    </div>
+    <div class="task-due-date"   [matTooltip]="toolTip">
+      <div>
+        <mat-icon [style]="dateColor" class="task-due-date-icon">calendar_month</mat-icon>
+      </div>
+      <div>
+        {{task.dueDate.getDate()}}/{{task.dueDate.getMonth()}}/{{task.dueDate.getFullYear()}}
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="task-assign-to">
+    <mat-icon class="task-assign-to-icon">assignment_ind</mat-icon>
+    {{task.taskAssignedTo}}
+  </div>
+
+
+</div>

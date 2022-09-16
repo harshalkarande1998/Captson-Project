@@ -1,0 +1,72 @@
+
+
+.add-task-pop-up-container{
+
+    width: 470px;
+    height: 50% ;
+    padding: 20px;
+    border: 1px solid rgb(223, 233, 236);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+}
+
+
+.add-column-form-btn{
+    padding: 4px 20px;
+    border-radius: 5px;
+ 
+}
+
+.add-column-form-btn-back{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+select{
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+input{
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+input:focus{
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+ outline: none !important;
+
+}
+
+
+textarea{
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.create-task-heading{
+    padding-left: 15px;
+    color: rgb(53, 53, 53);
+}
+
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+select.form-control:focus,
+select:focus,
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
+

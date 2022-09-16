@@ -1,0 +1,21 @@
+.add-member-dialog-btn{
+    align-items: center;
+    text-align: center;
+    padding: 5px 30px;
+    border: 1px solid black;
+}
+
+.add-member-dialog-btn:hover{
+   background-color: rgb(195, 195, 195);
+}
+
+.add-member-header{
+    display: flex;
+    justify-content: space-between;
+ 
+}
+
+input{
+    margin-bottom: 20px;
+}
+

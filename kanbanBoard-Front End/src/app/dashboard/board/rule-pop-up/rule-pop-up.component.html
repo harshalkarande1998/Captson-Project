@@ -1,0 +1,143 @@
+<!-- <form action="" [formGroup]="ruleForm" (ngSubmit)="addRule(ruleForm.value)">
+    <label for="trigger">Rule Trigger</label>
+    <br>
+    <select formControlName="fromColumn">
+        <option value="{{column.columnId}}" *ngFor="let column of board.columns">{{column.columnTitle}}</option>
+    </select>
+    <br>
+    <select formControlName="toColumn">
+        <option value="{{column.columnId}}" *ngFor="let column of board.columns">{{column.columnTitle}}</option>
+    </select>
+    <br>
+    <select formControlName="trigger">
+        <option value="taskCompletionStatus">Task Completion Status</option>
+        <option value="taskStatus">Task Status</option>
+        <option value="taskPriority">Task priority</option>
+    </select>
+    <br>
+  {{trigger?.value}} -->
+<!-- <div  *ngIf="trigger?.value=='taskCompletionStatus'">
+
+        <select formControlName="triggerStatus">
+            <option value="{{val}}" *ngFor="let val of taskCompletionOptions">{{val}}</option>
+        </select>
+    </div>
+    <div *ngIf="trigger?.value=='taskStatus'">
+        
+        <select formControlName="triggerStatus">
+            <option value="{{val}}" *ngFor="let val of board.availableTaskStatus">{{val}}</option>
+        </select>
+    </div>
+    <div *ngIf="trigger?.value=='taskPriority'">
+        
+        <select formControlName="triggerStatus">
+            <option value="{{val}}" *ngFor="let val of board.availableTaskPriority">{{val}}</option>
+        </select>
+    </div> -->
+
+
+<!-- <input type="text" formControlName="triggerStatus" placeholder="Value of trigger"> -->
+
+<!-- <button type="submit">add Rule</button>
+</form> -->
+<div class="rule-dialog-header">
+    <h2 class="add-column-form-heading">Rules <small>(Add automation)</small></h2>
+    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-x"
+        viewBox="0 0 16 16" (click)="closeDialog()">
+        <path
+            d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+    </svg>
+</div>
+<div class="rule-container">
+
+
+
+
+    <div class="display-and-update-rule">
+        <app-rule-update></app-rule-update>
+    </div>
+
+    <div class="add-rule-dialog-container">
+
+
+        <form [formGroup]="ruleForm" (ngSubmit)="addRule(ruleForm.value)">
+            <div class="add-column-form-container">
+
+                <div class="mb-3">
+                    <label for="columnTitle" class="form-label">From Column</label>
+                    <select formControlName="fromColumn" class="form-select" aria-label="Default select example">
+                        <option value="" selected disabled>select column</option>
+                        <option value="{{column.columnId}}" *ngFor="let column of board?.columns">{{column.columnTitle}}
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="columnTaskLimit" class="form-label">To Column</label>
+                    <select formControlName="toColumn" class="form-select" aria-label="Default select example">
+                        <option value="" selected disabled>select column</option>
+                        <option value="{{column.columnId}}" *ngFor="let column of board?.columns">{{column.columnTitle}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="columnTaskLimit" class="form-label">Triggers</label>
+                    <select formControlName="trigger" class="form-select" aria-label="Default select example">
+                        <option value="" selected disabled>trigger</option>
+                        <option value="taskCompletionStatus">Task Completion Status</option>
+                        <option value="taskStatus">Task Status</option>
+                        <option value="taskPriority">Task priority</option>
+                    </select>
+                </div>
+
+
+                <div *ngIf="trigger?.value=='taskCompletionStatus'">
+                    <label for="columnTitle" class="form-label">Completion Status</label>
+                    <select formControlName="triggerStatus" class="form-select" aria-label="Default select example">
+                        <option value="" selected disabled>Select completion status</option>
+                        <option value="true">Complete</option>
+                        <option value="false">Incomplete</option>
+                    </select>
+
+                    <!-- <select >
+                <option value="{{val}}" *ngFor="let val of taskCompletionOptions">{{val}}</option>
+            </select> -->
+                </div>
+                <div *ngIf="trigger?.value=='taskStatus'">
+                    <label for="columnTitle" class="form-label">Task Status</label>
+                    <select formControlName="triggerStatus" class="form-select" aria-label="Default select example">
+                        <option selected disabled value="">Select Task Status</option>
+                        <option value="{{val}}" *ngFor="let val of board?.availableTaskStatus">{{val}}</option>
+                    </select>
+
+                    <!-- <select formControlName="triggerStatus">
+                <option value="{{val}}" *ngFor="let val of board?.availableTaskStatus">{{val}}</option>
+            </select> -->
+                </div>
+                <div *ngIf="trigger?.value=='taskPriority'">
+                    <label for="columnTitle" class="form-label">Task Priority</label>
+                    <select formControlName="triggerStatus" class="form-select" aria-label="Default select example">
+                        <option selected disabled value="">Select Task Priority</option>
+                        <option value="{{val}}" *ngFor="let val of board?.availableTaskPriority">{{val}}</option>
+                    </select>
+
+                    <!-- <select formControlName="triggerStatus">
+                <option value="{{val}}" *ngFor="let val of board?.availableTaskPriority">{{val}}</option>
+            </select> -->
+                </div>
+
+                <div class="add-column-form-btn-container">
+                    <button class="add-column-form-btn btn btn-primary" [disabled]="!ruleForm.valid"
+                        type="submit">Create</button>
+                    <!-- <button class="add-column-form-btn btn btn-secondary" (click)="closeDialog()"
+                        type="button">Close</button> -->
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+</div>

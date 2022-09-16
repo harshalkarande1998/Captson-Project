@@ -1,0 +1,65 @@
+
+  <h2 class="create-task-heading">Create Task</h2>
+<div class="add-task-pop-up-container">
+
+  
+    
+    <form [formGroup]="newTask">
+        <div class="mb-3">
+            <label for="columnTitle" class="form-label">Task Name *</label>
+            <input formControlName="taskName" type="text" class="form-control" placeholder="enter task name here">
+        </div>
+
+        <div class="mb-3">
+            <label for="floatingTextarea" class="form-label">Description *</label>
+            <textarea formControlName="taskDescription" class="form-control" placeholder="Write task desription here"
+                id="floatingTextarea"></textarea>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="columnTitle" class="form-label">Task Assign To *</label>
+            <select formControlName="taskAssignedTo" class="form-select" aria-label="Default select example">
+                <option value="" disabled selected>select member</option>
+                <option *ngFor="let member of board?.boardMembers" value="{{member?.memberEmail}}">
+                    {{member?.memberEmail}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="columnTitle" class="form-label">Task Priority *</label>
+            <select formControlName="taskPriority" class="form-select" aria-label="Default select example">       
+                    <option value="" disabled selected>select priority</option>
+                    <option *ngFor="let priority of board?.availableTaskPriority" value="{{priority}}">{{priority}}
+                    </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="columnTitle" class="form-label">Task Status *</label>
+            <select formControlName="taskStatus" class="form-select" aria-label="Default select example">
+                <option value="" disabled selected>select task status</option>
+                <option *ngFor="let status of board?.availableTaskStatus" value="{{status}}">{{status}}</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="columnTitle" class="form-label">Due Date *</label>
+            <!-- <input formControlName="dueDate" type="date" class="form-control" placeholder="due date " [min]="date"> -->
+
+            <input matInput formControlName="dueDate" type="date" class="form-control" placeholder="due date "
+            [min]="minStartDate" [matDatepicker]="picker"
+            >
+            <mat-datepicker-toggle style="display: none;" matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </div>
+
+        <div class="add-column-form-btn-back">
+            <button class="add-column-form-btn btn btn-primary" type="submit" [disabled]="!newTask.valid"
+                (click)="createTask(newTask.value)">Create</button>
+            <button class="add-column-form-btn btn btn-secondary" type="button" (click)="closeDialogAddTask()">Close</button>
+        </div>
+    </form>
+
+
+</div>

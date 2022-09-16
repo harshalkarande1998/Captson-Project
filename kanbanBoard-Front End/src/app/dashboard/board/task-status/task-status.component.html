@@ -1,0 +1,19 @@
+<div class="add-member-dialog">
+
+    <div class="add-member-header">
+        <h2>Task Status</h2>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16" (click)="closeTaskStatusDialog()">
+            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+          </svg>
+    </div>
+    <form [formGroup]="taskstatus1" >
+      <div class="mb-3 ">
+        <label for="taskstatus" class="form-label">Task Priority</label>
+        <input type="text" class="form-control" formControlName="taskstatus" placeholder="taskstatus">
+      </div>
+    </form>
+  
+
+    <button type="click" class="btn btn-primary" class="add-member-dialog-btn"
+    [disabled]="!taskstatus1.valid" (click)="addTaskStatus(taskstatus1.value.taskstatus)">Add</button>
+</div>
